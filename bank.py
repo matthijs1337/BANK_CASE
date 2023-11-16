@@ -12,7 +12,7 @@ df['job_encoded'] = label_encoder.fit_transform(df['job'])
 
 
 # Train een logistisch regressiemodel met de dataset
-X = df[['job', 'pdays']]
+X = df[['job_encoded', 'pdays']]
 y = df['y']
 model = LogisticRegression()
 model.fit(X, y)
@@ -21,11 +21,11 @@ model.fit(X, y)
 st.title('Ja/Nee Voorspellingsdashboard')
 
 # Dropdown-menu's voor variabelen
-job_encoded = st.selectbox('Selecteer baan:', df['job'].unique())
+job_encoded = st.selectbox('Selecteer baan:', df['job_encoded'].unique())
 pdays = st.selectbox('Selecteer pdays:', df['pdays'].unique())
 
 # Maak een voorspelling met het model op basis van de geselecteerde waarden
-prediction = model.predict([[job, pdays]])
+prediction = model.predict([[job_encoded, pdays]])
 
 # Toon het voorspelde resultaat
 st.write(f"Voorspelling: {prediction[0]}")
