@@ -5,8 +5,7 @@ from sklearn.preprocessing import LabelEncoder
 
 df = pd.read_csv("bank.csv", sep=';')
 df = df.drop_duplicates
-label_encoder = LabelEncoder()
-df['job_encoded'] = label_encoder.fit_transform(df['job'])
+df['job_encoded'] = LabelEncoder.fit_transform(df['job'])
 
 
 # Train een logistisch regressiemodel met de dataset
