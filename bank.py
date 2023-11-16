@@ -2,11 +2,9 @@ import streamlit as st
 import pandas as pd
 pip install -U scikit-learn
 import sklearn
-data = {
-    'Feature1': [1, 2, 3, 4, 5],
-    'Feature2': [2, 3, 4, 5, 6],
-    'Target': ['Nee', 'Nee', 'Ja', 'Nee', 'Ja']
-}
+
+
+data = {'Feature1': [1, 2, 3, 4, 5],'Feature2': [2, 3, 4, 5, 6],'Target': ['Nee', 'Nee', 'Ja', 'Nee', 'Ja']}
 df = pd.DataFrame(data)
 
 # Train een logistisch regressiemodel met de dataset
