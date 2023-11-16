@@ -6,7 +6,7 @@ bank = pd.read_csv("bank.csv", sep=';')
 bank = bank.rename(columns={'y', 'target'})
 
 # Train een logistisch regressiemodel met de dataset
-X = bank[['job', 'loan']]
+X = bank[['campaign', 'pdays']]
 y = bank['target']
 model = LogisticRegression()
 model.fit(X, y)
@@ -15,8 +15,8 @@ model.fit(X, y)
 st.title('Ja/Nee Voorspellingsdashboard')
 
 # Dropdown-menu's voor variabelen
-job = st.selectbox('Selecteer job:', bank['job'].unique())
-loan = st.selectbox('Selecteer loan:', bank['loan'].unique())
+campaign = st.selectbox('Selecteer campaign:', bank['campaign'].unique())
+pdays = st.selectbox('Selecteer pdays:', bank['pdays'].unique())
 
 # Maak een voorspelling met het model op basis van de geselecteerde waarden
 prediction = model.predict([[job, loan]])
