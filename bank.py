@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-import plotly.express as px
+#import plotly.express as px
 import streamlit as st
 from sklearn.linear_model import LogisticRegression
 
