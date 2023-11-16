@@ -3,12 +3,11 @@ import pandas as pd
 from sklearn.linear_model import LogisticRegression
 
 bank = pd.read_csv("bank.csv", sep=';')
-
-
+bank = bank.rename(columns={'y', 'target'})
 
 # Train een logistisch regressiemodel met de dataset
 X = bank[['job', 'loan']]
-y = bank['y']
+y = bank['target']
 model = LogisticRegression()
 model.fit(X, y)
 
