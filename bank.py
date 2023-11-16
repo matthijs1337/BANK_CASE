@@ -1,4 +1,4 @@
-pip install scikit-learn
+$pip install scikit-learn
 
 import pandas as pd
 import numpy as np
