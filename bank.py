@@ -10,6 +10,7 @@ df = df.drop_duplicates()
 label_encoder = LabelEncoder()
 df['job_encoded'] = label_encoder.fit_transform(df['job'])
 
+
 # Train een logistisch regressiemodel met de dataset
 X = df[['job_encoded', 'pdays']]
 y = df['y']
