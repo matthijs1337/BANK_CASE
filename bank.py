@@ -1,9 +1,6 @@
 import pandas as pd
 import streamlit as st
 from sklearn.linear_model import LogisticRegression
-
-bank = pd.read_csv("bank.csv", sep=';')
-
 # Creëer een voorbeeld dataset
 data = {
     'Feature1': [1, 2, 3, 4, 5],
