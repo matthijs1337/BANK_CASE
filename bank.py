@@ -5,14 +5,13 @@ from sklearn.preprocessing import LabelEncoder
 
 df = pd.read_csv("bank.csv", sep=';')
 df = df.drop_duplicates
-df.rename(columns={'y': 'target'}, inplace=True)
 label_encoder = LabelEncoder()
 df['job_encoded'] = label_encoder.fit_transform(df['job'])
 
 
 # Train een logistisch regressiemodel met de dataset
 X = df[['job_encoded', 'pdays']]
-y = df['target']
+y = df['y']
 model = LogisticRegression()
 model.fit(X, y)
 
