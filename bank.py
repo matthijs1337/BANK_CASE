@@ -1,4 +1,3 @@
-source venv/bin/activate
 
 import pandas as pd
 import streamlit as st
