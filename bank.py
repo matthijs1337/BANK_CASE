@@ -1,6 +1,7 @@
-import pandas as pd
 import streamlit as st
+import pandas as pd
 from sklearn.linear_model import LogisticRegression
+
 # Creëer een voorbeeld dataset
 data = {
     'Feature1': [1, 2, 3, 4, 5],
