@@ -4,8 +4,8 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import LabelEncoder
 
 df = pd.read_csv("bank.csv", sep=';')
-df = bank.drop_duplicates
-df = bank.rename(columns={'y', 'target'})
+df = df.drop_duplicates
+df = df.rename(columns={'y', 'target'})
 label_encoder = LabelEncoder()
 df['job_encoded'] = label_encoder.fit_transform(df['job'])
 
