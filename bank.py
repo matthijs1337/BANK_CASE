@@ -3,6 +3,7 @@ import pandas as pd
 from sklearn.linear_model import LogisticRegression
 
 bank = pd.read_csv("bank.csv", sep=';')
+bank = bank.drop_duplicates
 bank = bank.rename(columns={'y', 'target'})
 
 # Train een logistisch regressiemodel met de dataset
