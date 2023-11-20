@@ -37,4 +37,4 @@ pdays = st.selectbox('Selecteer pdays:', df['pdays'].unique())
 # Maak een voorspelling met het model op basis van de geselecteerde waarden
 prediction = model.predict([[job_encoded, age_encoded, education_encoded, pdays]])
 # Toon het voorspelde resultaat
-st.write(f"Voorspelling: {prediction[0]}")
+st.write(f"Voorspelling: {prediction[1]}")
