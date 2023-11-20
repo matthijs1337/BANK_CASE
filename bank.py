@@ -29,6 +29,6 @@ job_encoded = st.selectbox('Selecteer baan:', df['job_encoded'].unique())
 age_encoded = st.selectbox('Selecteer leeftijdsgroep:', df['age_encoded'].unique())
 pdays = st.selectbox('Selecteer pdays:', df['pdays'].unique())
 # Maak een voorspelling met het model op basis van de geselecteerde waarden
-prediction = model.predict([[job_encoded, pdays]])
+prediction = model.predict([[job_encoded, age_encoded, pdays]])
 # Toon het voorspelde resultaat
 st.write(f"Voorspelling: {prediction[0]}")
