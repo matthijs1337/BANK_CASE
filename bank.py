@@ -33,11 +33,10 @@ df['duration_encoded'] = label_encoder.fit_transform(df['DurationGroup'])
 
 # Train een logistisch regressiemodel met de dataset
 X = df[['age_encoded', 'job_encoded',
-        'marital_encoded', 'contact_encoded'
-        'education_encoded', 'contact_encoded'
-        'month_encoded', 'duration_encoded'
-        'campaign', 'pdays',
-        'previous'
+        'marital_encoded', 'education_encoded',
+        'contact_encoded', 'month_encoded', 
+        'duration_encoded', 'campaign', 
+        'pdays','previous'
        ]]
 y = df['y']
 model = LogisticRegression()
@@ -45,11 +44,23 @@ model.fit(X, y)
 # Streamlit-app
 st.title('Ja/Nee Voorspellingsdashboard')
 # Dropdown-menu's voor variabelen
-job_encoded = st.selectbox('Selecteer baan:', df['job_encoded'].unique())
 age_encoded = st.selectbox('Selecteer leeftijdsgroep:', df['age_encoded'].unique())
+job_encoded = st.selectbox('Selecteer baan:', df['job_encoded'].unique())
+marital_encoded = st.selectbox('Selecteer relatiestatus:', df['marital_encoded'].unique())
 education_encoded = st.selectbox('Selecteer opleidingsniveau:', df['education_encoded'].unique())
+contact_encoded = st.selectbox('Selecteer contact:', df['contact_encoded'].unique())
+month_encoded = st.selectbox('Selecteer maand:', df['month_encoded'].unique())
+duration_encoded = st.selectbox('Selecteer duration:', df['duration_encoded'].unique())
+campaign = st.selectbox('Selecteer campaign:', df['campaign'].unique())
 pdays = st.selectbox('Selecteer pdays:', df['pdays'].unique())
+previous = st.selectbox('Selecteer previous:', df['previous'].unique())
+
 # Maak een voorspelling met het model op basis van de geselecteerde waarden
-prediction = model.predict([[job_encoded, age_encoded, education_encoded, pdays]])
+prediction = model.predict([[age_encoded, job_encoded,
+        marital_encoded, contact_encoded,
+        education_encoded, contact_encoded,
+        month_encoded, duration_encoded,
+        campaign, pdays,
+        previous]])
 # Toon het voorspelde resultaat
 st.write(f"Voorspelling: {prediction[0]}")
