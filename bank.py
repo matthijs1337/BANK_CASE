@@ -51,11 +51,6 @@ pdays = st.selectbox('Selecteer pdays:', df['pdays'].unique())
 previous = st.selectbox('Selecteer previous:', df['previous'].unique())
 
 # Maak een voorspelling met het model op basis van de geselecteerde waarden
-prediction = model.predict([[age_encoded, job_encoded,
-        marital_encoded, contact_encoded,
-        education_encoded, contact_encoded,
-        month_encoded, duration_encoded,
-        campaign, pdays,
-        previous]])
+prediction = model.predict([[age_encoded, job_encoded, marital_encoded, education_encoded, contact_encoded, month_encoded, duration_encoded, campaign, pdays, previous]])
 # Toon het voorspelde resultaat
 st.write(f"Voorspelling: {prediction[0]}")
