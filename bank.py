@@ -21,9 +21,14 @@ df.loc[df['duration'] >= 1000, 'DurationGroup'] = '1000+'
 
 # Labelcodering toepassen
 label_encoder = LabelEncoder()
-df['job_encoded'] = label_encoder.fit_transform(df['job'])
 df['age_encoded'] = label_encoder.fit_transform(df['AgeGroup'])
+df['job_encoded'] = label_encoder.fit_transform(df['job'])
+df['marital_encoded'] = label_encoder.fit_transform(df['marital'])
 df['education_encoded'] = label_encoder.fit_transform(df['education'])
+df['contact_encoded'] = label_encoder.fit_transform(df['contact'])
+df['month_encoded'] = label_encoder.fit_transform(df['month'])
+df['duration_encoded'] = label_encoder.fit_transform(df['DurationGroup'])
+
 
 
 # Train een logistisch regressiemodel met de dataset
