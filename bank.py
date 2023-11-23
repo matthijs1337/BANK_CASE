@@ -32,7 +32,11 @@ df['duration_encoded'] = label_encoder.fit_transform(df['DurationGroup'])
 
 
 # Train een logistisch regressiemodel met de dataset
-X = df[['job_encoded', 'pdays', 'age_encoded', 'education_encoded']]
+X = df[['age_encoded', 'job_encoded',
+        'marital_encoded', 'contact_encoded'
+        'education_encoded', 'contact_encoded'
+        'month_encoded', 'duration_encoded'
+       ]]
 y = df['y']
 model = LogisticRegression()
 model.fit(X, y)
