@@ -12,8 +12,12 @@ df.loc[(df['age'] >= 30) & (df['age'] < 50), 'AgeGroup'] = '30-49'
 df.loc[(df['age'] >= 50) & (df['age'] < 65), 'AgeGroup'] = '50-64'
 df.loc[df['age'] >= 65, 'AgeGroup'] = '65+'
 
-#opleiding
-
+#duration
+df.loc[df['duration'] < 249, 'DurationGroup'] = '0-249'
+df.loc[(df['duration'] >= 250) & (df['duration'] < 499), 'DurationGroup'] = '250-499'
+df.loc[(df['duration'] >= 500) & (df['duration'] < 749), 'DurationGroup'] = '500-749'
+df.loc[(df['duration'] >= 750) & (df['duration'] < 999), 'DurationGroup'] = '750-999'
+df.loc[df['duration'] >= 1000, 'DurationGroup'] = '1000+'
 
 # Labelcodering toepassen
 label_encoder = LabelEncoder()
