@@ -36,6 +36,8 @@ X = df[['age_encoded', 'job_encoded',
         'marital_encoded', 'contact_encoded'
         'education_encoded', 'contact_encoded'
         'month_encoded', 'duration_encoded'
+        'campaign', 'pdays',
+        'previous'
        ]]
 y = df['y']
 model = LogisticRegression()
