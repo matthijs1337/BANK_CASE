@@ -68,7 +68,11 @@ def plot_bar_charts():
     #figuur 3 
     fig3 = px.bar(df, x='y', color="education", barmode="group")
     st.plotly_chart(fig3)
-
+  
+    #figuur 4 
+    fig4 = px.bar(df, x='y', color="job", barmode="group")
+    st.plotly_chart(fig4)
+    
 def tab_two():
     st.title('Plots')
     plot_bar_charts()
