@@ -32,8 +32,7 @@ df['contact_encoded'] = label_encoder.fit_transform(df['contact'])
 df['month_encoded'] = label_encoder.fit_transform(df['month'])
 df['duration_encoded'] = label_encoder.fit_transform(df['DurationGroup'])
 
-def tab_one():
-    
+def tab_one():    
 # Train een logistisch regressiemodel met de dataset
 X = df[['age_encoded', 'job_encoded','marital_encoded', 'education_encoded', 'contact_encoded', 'month_encoded', 'duration_encoded', 'campaign', 'pdays','previous']]
 y = df['y']
