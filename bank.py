@@ -77,6 +77,8 @@ def plot_bar_charts():
     fig5 = px.bar(df, x='y', color="marital", barmode="group")
     st.plotly_chart(fig5)
 
+
+def plot_bar_charts2():
     #figuur 6 contact
     fig6 = px.bar(df, x='y', color="contact", barmode="group")
     st.plotly_chart(fig6)
@@ -101,15 +103,21 @@ def tab_two():
     st.title('Plots')
     plot_bar_charts()
 
+def tab_three():
+    st.title('Plots 2')
+    plot_bar_charts2()
+
 def main():
 
-    tabs = ["Tab 1", "Tab 2"]
+    tabs = ["Tab 1", "Tab 2", "Tab 3"]
     choice = st.sidebar.selectbox("Select Tab", tabs)
 
     if choice == "Tab 1":
         tab_one()
     elif choice == "Tab 2":
         tab_two()
+    elif choice == "Tab 3":
+        tab_three()
 
 if __name__ == "__main__":
     main()
