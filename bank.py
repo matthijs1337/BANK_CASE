@@ -58,16 +58,18 @@ def tab_one():
             st.write(f"Voorspelling: {prediction[0]}")
 
 def tab_two():
+#Maken van Plots
 
-            #Maken van Plots
 def plot_bar_chart():
-fig = px.bar(df, x='y', color="AgeGroup", barmode="group"), title='Bar Chart')
-st.plotly_chart(fig)
-st.write("Content of Tab 2")
-    
+    fig = px.bar(df, x='y', color="AgeGroup", barmode="group")
+    st.plotly_chart(fig)
+
+    st.title('Plotly Express Bar Chart in Streamlit')
+    plot_bar_chart()
 
 def main():
-
+    st.title('Plotly Express Bar Chart in Streamlit')
+    plot_bar_chart()
     tabs = ["Tab 1", "Tab 2"]
     choice = st.sidebar.selectbox("Select Tab", tabs)
 
