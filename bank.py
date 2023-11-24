@@ -4,10 +4,13 @@ import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import LabelEncoder
 import plotly.express as px
+
 #Data inladen
 df = pd.read_csv("bank.csv", sep=';')
-df = df.drop_duplicates()
 
+#Data cleaning
+df = df.drop_duplicates()
+value_to_delete = 'unknown'
 df = df[(df['age'] != value_to_delete) &
                   (df['job'] != value_to_delete) &
                   (df['marital'] != value_to_delete) &
