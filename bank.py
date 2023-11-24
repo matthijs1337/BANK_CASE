@@ -57,12 +57,17 @@ def tab_one():
     st.write(f"Voorspelling: {prediction[0]}")
 
 def plot_bar_charts():
-    #figuur 1
+    #figuur 1 leeftijdsgroep
     fig1 = px.bar(df, x='y', color="AgeGroup", barmode="group")
     st.plotly_chart(fig1)
-    #figuur 2
+    
+    #figuur 2 lengte van de call
     fig2 = px.bar(df, x='y', color="DurationGroup", barmode="group")
     st.plotly_chart(fig2)
+    
+    #figuur 3 
+    fig3 = px.bar(df, x='y', color="education", barmode="group")
+    st.plotly_chart(fig3)
 
 def tab_two():
     st.title('Plots')
