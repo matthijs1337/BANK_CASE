@@ -57,6 +57,11 @@ def tab_one():
             st.write(f"Voorspelling: {prediction[0]}")
 
 def tab_two():
+
+            #Maken van Plots
+            fig = px.bar(df, x='y', color="AgeGroup", barmode="group"), title='Bar Chart')
+            st.plotly_chart(fig)
+
     st.write("Content of Tab 2")
     
 
