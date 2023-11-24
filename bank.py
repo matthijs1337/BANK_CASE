@@ -39,7 +39,7 @@ def tab_one():
     model = LogisticRegression()
     model.fit(X, y)
     # Streamlit-app
-    st.title('Ja/Nee Voorspellingsdashboard')
+    st.title('Voorspellingsmodel succesvolle banklening')
     # Dropdown-menu's voor variabelen
     age_encoded = st.selectbox('Selecteer leeftijdsgroep:', df['age_encoded'].unique())
     job_encoded = st.selectbox('Selecteer baan:', df['job_encoded'].unique())
@@ -60,7 +60,7 @@ def plot_bar_chart():
     fig = px.bar(df, x='y', color="AgeGroup", barmode="group")
     st.plotly_chart(fig)
 def tab_two():
-    st.title('Plotly Express Bar Chart in Streamlit')
+    st.title('Plots')
     plot_bar_chart()
 
 def main():
