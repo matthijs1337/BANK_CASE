@@ -60,6 +60,7 @@ def tab_one():
 def tab_two():
 
             #Maken van Plots
+            def plot_bar_chart():
             fig = px.bar(df, x='y', color="AgeGroup", barmode="group"), title='Bar Chart')
             st.plotly_chart(fig)
 
