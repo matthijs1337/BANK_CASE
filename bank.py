@@ -53,4 +53,24 @@ previous = st.selectbox('Selecteer previous:', df['previous'].unique())
 # Maak een voorspelling met het model op basis van de geselecteerde waarden
 prediction = model.predict([[age_encoded,job_encoded,marital_encoded,education_encoded,contact_encoded,month_encoded,duration_encoded,campaign,pdays,previous]])
 # Toon het voorspelde resultaat
-st.write(f"Voorspelling: {prediction[0]}")
+
+def tab_one():
+    st.write(f"Voorspelling: {prediction[0]}")
+
+def tab_two():
+    st.write("Content of Tab 2")
+
+def main():
+    st.title("Multi-Tab Streamlit App")
+
+    tabs = ["Tab 1", "Tab 2"]
+    choice = st.sidebar.selectbox("Select Tab", tabs)
+
+    if choice == "Tab 1":
+        tab_one()
+    elif choice == "Tab 2":
+        tab_two()
+
+if __name__ == "__main__":
+    main()
+
