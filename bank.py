@@ -56,10 +56,13 @@ def tab_one():
     # Toon het voorspelde resultaat
     st.write(f"Voorspelling: {prediction[0]}")
 
-def plot_bar_chart():
-    fig = px.bar(df, x='y', color="AgeGroup", barmode="group")
-    fig.update_layout(yaxis=dict(autorange="reversed"))
-    st.plotly_chart(fig)
+def plot_bar_charts():
+    #figuur 1
+    fig1 = px.bar(df, x='y', color="AgeGroup", barmode="group")
+    st.plotly_chart(fig1)
+    #figuur 2
+    fig2 = px.bar(df, x='y', color="DurationGroup", barmode="group")
+    st.plotly_chart(fig2)
 def tab_two():
     st.title('Plots')
     plot_bar_chart()
