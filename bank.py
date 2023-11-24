@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import LabelEncoder
+import plotly.express as px
 #Data inladen
 df = pd.read_csv("bank.csv", sep=';')
 df = df.drop_duplicates()
