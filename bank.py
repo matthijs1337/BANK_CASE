@@ -58,6 +58,7 @@ def tab_one():
 
 def plot_bar_chart():
     fig = px.bar(df, x='y', color="AgeGroup", barmode="group")
+    fig.update_layout(yaxis=dict(autorange="reversed"))
     st.plotly_chart(fig)
 def tab_two():
     st.title('Plots')
