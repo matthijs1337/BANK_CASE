@@ -65,13 +65,37 @@ def plot_bar_charts():
     fig2 = px.bar(df, x='y', color="DurationGroup", barmode="group")
     st.plotly_chart(fig2)
     
-    #figuur 3 
+    #figuur 3 opleidingsniveau
     fig3 = px.bar(df, x='y', color="education", barmode="group")
     st.plotly_chart(fig3)
   
-    #figuur 4 
+    #figuur 4 werk
     fig4 = px.bar(df, x='y', color="job", barmode="group")
     st.plotly_chart(fig4)
+
+    #figuur 5 huwelijk
+    fig5 = px.bar(df, x='y', color="marital", barmode="group")
+    st.plotly_chart(fig5)
+
+    #figuur 6 contact
+    fig4 = px.bar(df, x='y', color="contact", barmode="group")
+    st.plotly_chart(fig6)
+
+    #figuur 7 maand
+    fig7 = px.bar(df, x='y', color="month", barmode="group")
+    st.plotly_chart(fig7)
+
+    #figuur 8 campaign
+    fig8 = px.bar(df, x='y', color="campaign", barmode="group")
+    st.plotly_chart(fig8)
+    
+    #figuur 9 pdays
+    fig9 = px.bar(df, x='y', color="pdays", barmode="group")
+    st.plotly_chart(fig9)
+
+    #figuur 10 
+    fig10 = px.bar(df, x='y', color="previous", barmode="group")
+    st.plotly_chart(fig10)
     
 def tab_two():
     st.title('Plots')
