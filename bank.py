@@ -8,6 +8,17 @@ import plotly.express as px
 df = pd.read_csv("bank.csv", sep=';')
 df = df.drop_duplicates()
 
+df = df[(df['age'] != value_to_delete) &
+                  (df['job'] != value_to_delete) &
+                  (df['marital'] != value_to_delete) &
+                  (df['education'] != value_to_delete) &
+                  (df['contact'] != value_to_delete) &
+                  (df['month'] != value_to_delete) &
+                  (df['duration'] != value_to_delete) &
+                  (df['campaign'] != value_to_delete) &
+                  (df['pdays'] != value_to_delete) &
+                  (df['previous'] != value_to_delete)]
+
 #categoriseren van data
 #leeftijd
 df.loc[df['age'] < 30, 'AgeGroup'] = '17-29'
