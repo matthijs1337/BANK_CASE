@@ -63,9 +63,10 @@ def plot_bar_charts():
     #figuur 2
     fig2 = px.bar(df, x='y', color="DurationGroup", barmode="group")
     st.plotly_chart(fig2)
+
 def tab_two():
     st.title('Plots')
-    plot_bar_chart()
+    plot_bar_charts()
 
 def main():
 
