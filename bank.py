@@ -78,7 +78,7 @@ def plot_bar_charts():
     st.plotly_chart(fig5)
 
     #figuur 6 contact
-    fig4 = px.bar(df, x='y', color="contact", barmode="group")
+    fig6 = px.bar(df, x='y', color="contact", barmode="group")
     st.plotly_chart(fig6)
 
     #figuur 7 maand
