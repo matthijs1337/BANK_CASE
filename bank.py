@@ -88,7 +88,7 @@ def plot_bar_charts():
     st.plotly_chart(fig4)
 
     #figuur 5 huwelijk
-    fig5 = px.bar(df, x='y', color="marital", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'marital' : 'Huwelijksstatus', "count" : 'Aantal personen'})
+    fig5 = px.bar(df, x='y', color="marital", barmode="group", labels ={"y": "Heeft de klant een termijndeposito afgesloten?", 'marital' : 'Huwelijksstatus', "count" : 'Aantal personen'})
     st.plotly_chart(fig5)
 
 
