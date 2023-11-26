@@ -70,6 +70,8 @@ def tab_one():
     # Toon het voorspelde resultaat
     st.write(f"Voorspelling: {prediction[0]}")
 
+#Defineren van plots
+
 def plot_bar_charts():
     #figuur 1 leeftijdsgroep
     fig1 = px.bar(df, x='y', color="AgeGroup", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'AgeGroup' : 'Leeftijdscategorie', "count" : 'Aantal personen'})
