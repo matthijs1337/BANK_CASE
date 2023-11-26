@@ -74,9 +74,7 @@ def tab_one():
 
 def plot_bar_charts():
     #figuur 1 leeftijdsgroep
-    #fig1 = px.bar(df, x='y', color="AgeGroup", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'AgeGroup' : 'Leeftijdscategorie', "count" : 'Aantal personen'}, order=["65+", "50-64", "30-49", "17-29"])
-    df = df.loc[df['AgeGroup'].isin(['17-29', '30-49', '50-64', '65+'])]
-    fig1 = px.bar(df, x='y', color="AgeGroup", barmode="group")
+    fig1 = px.bar(df, x='y', color="AgeGroup", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'AgeGroup' : 'Leeftijdscategorie', "count" : 'Aantal personen'})
     st.plotly_chart(fig1)
     
     #figuur 2 lengte van de call
