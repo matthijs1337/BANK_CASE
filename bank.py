@@ -72,45 +72,45 @@ def tab_one():
 
 def plot_bar_charts():
     #figuur 1 leeftijdsgroep
-    fig1 = px.bar(df, x='y', color="AgeGroup", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'AgeGroup' : 'Leeftijdscategorie', "count" : 'Aantal personen'}, title="lol")
+    fig1 = px.bar(df, x='y', color="AgeGroup", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'AgeGroup' : 'Leeftijdscategorie', "count" : 'Aantal personen'})
     st.plotly_chart(fig1)
     
     #figuur 2 lengte van de call
-    fig2 = px.bar(df, x='y', color="DurationGroup", barmode="group")
+    fig2 = px.bar(df, x='y', color="DurationGroup", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'DurationGroup' : 'Duur van contact', "count" : 'Aantal personen'})
     st.plotly_chart(fig2)
     
     #figuur 3 opleidingsniveau
-    fig3 = px.bar(df, x='y', color="education", barmode="group")
+    fig3 = px.bar(df, x='y', color="education", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'education' : 'Hoogst afgeronde opleiding', "count" : 'Aantal personen'})
     st.plotly_chart(fig3)
   
     #figuur 4 werk
-    fig4 = px.bar(df, x='y', color="job", barmode="group")
+    fig4 = px.bar(df, x='y', color="job", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'job' : 'Functietitel', "count" : 'Aantal personen'})
     st.plotly_chart(fig4)
 
     #figuur 5 huwelijk
-    fig5 = px.bar(df, x='y', color="marital", barmode="group")
+    fig5 = px.bar(df, x='y', color="marital", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'marital' : 'Huwelijksstatus', "count" : 'Aantal personen'})
     st.plotly_chart(fig5)
 
 
 def plot_bar_charts2():
     #figuur 6 contact
-    fig6 = px.bar(df, x='y', color="contact", barmode="group")
+    fig6 = px.bar(df, x='y', color="contact", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'contact' : 'Communicatietype', "count" : 'Aantal personen'})
     st.plotly_chart(fig6)
 
     #figuur 7 maand
-    fig7 = px.bar(df, x='y', color="month", barmode="group")
+    fig7 = px.bar(df, x='y', color="month", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'month' : 'Maand', "count" : 'Aantal personen'} )
     st.plotly_chart(fig7)
 
     #figuur 8 campaign
-    fig8 = px.bar(df, x='y', color="campaign", barmode="group")
+    fig8 = px.bar(df, x='y', color="campaign", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'campaign' : 'Aantal uitgevoerde contacten vóór deze campagne en voor deze klant aantal uitgevoerde contacten tijdens deze campagne en voor deze klant (numeriek, inclusief laatste contact)', "count" : 'Aantal personen'})
     st.plotly_chart(fig8)
     
     #figuur 9 pdays
-    fig9 = px.bar(df, x='y', color="pdays", barmode="group")
+    fig9 = px.bar(df, x='y', color="pdays", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'pdays' : 'Aantal dagen dat is verstreken nadat de klant voor het laatst werd gecontacteerd vanuit een eerdere campagne', "count" : 'Aantal personen'})
     st.plotly_chart(fig9)
 
     #figuur 10 
-    fig10 = px.bar(df, x='y', color="previous", barmode="group")
+    fig10 = px.bar(df, x='y', color="previous", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'previous' : 'Aantal uitgevoerde contacten vóór deze campagne en voor deze klant', "count" : 'Aantal personen'})
     st.plotly_chart(fig10)
     
 def tab_two():
