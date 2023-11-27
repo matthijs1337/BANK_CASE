@@ -76,37 +76,26 @@ def tab_one():
 
 def plot_bar_charts():
     #figuur 1 leeftijdsgroep
-    #fig1 = px.pie(df, names='AgeGroup', values='y', title='Verdeling per leeftijdscategorie')
-    #st.plotly_chart(fig1)
-    # Filter de dataset voor 'yes' en 'no'
+    fig1 = px.bar(df, x='y', color="AgeGroup", barmode="group")
+    fig1 = px.bar(df, x='y', color="AgeGroup", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'AgeGroup' : 'Leeftijdscategorie', "count" : 'Aantal personen'})
+    st.plotly_chart(fig1)
 
-    # Filter de dataset voor 'yes' en 'no'
+    # Filter de dataset voor "yes" en "no"
     df_yes = df[df['y'] == 'yes']
     df_no = df[df['y'] == 'no']
+    # Maak een subplots figuur met twee pie charts
+    fig11 = make_subplots(rows=1, cols=2, specs=[[{'type': 'domain'}, {'type': 'domain'}]])
     
-    # Maak cirkeldiagrammen voor 'yes' en 'no'
-    fig = make_subplots(rows=1, cols=2, specs=[[{'type': 'domain'}, {'type': 'domain'}]])
+    # Voeg de pie charts toe voor "yes" en "no"
+    fig11.add_trace(go.Pie(labels=df_yes['AgeGroup'], hole=0.6, marker_colors=['#353837', '#646665', '#8e9492', '#c9d1ce']), 1, 1)
+    fig11.add_trace(go.Pie(labels=df_no['AgeGroup'], hole=0.6, marker_colors=['#353837', '#646665', '#8e9492', '#c9d1ce']), 1, 2)
     
-    # Cirkeldiagram voor 'yes'
-    fig.add_trace(go.Pie(labels=df_yes['AgeGroup'], values=df_yes['AgeGroup'].value_counts(), name='Yes'), 1, 1)
+    # Update layout
+    fig11.update_layout(title_text="Leeftijdscategorie")
     
-    # Cirkeldiagram voor 'no'
-    fig.add_trace(go.Pie(labels=df_no['AgeGroup'], values=df_no['AgeGroup'].value_counts(), name='No'), 1, 2)
-    
-    # Update lay-out en labels
-    fig.update_traces(hole=0.4, hoverinfo="label+percent+name")
-    
-    fig.update_layout(
-        title_text="Verdeling van leeftijdsgroepen voor 'Yes' en 'No'",
-        annotations=[dict(text='Yes', x=0.18, y=0.5, font_size=20, showarrow=False),
-                     dict(text='No', x=0.82, y=0.5, font_size=20, showarrow=False)]
-    )
-    
-    # Toon de subplot
-    st.plotly_chart(fig)
-
-
-
+    # Toon de subplot met beide pie charts
+    st.plotly_chart(fig11)
+  
     #figuur 2 lengte van de call
     fig2 = px.bar(df, x='y', color="DurationGroup", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'DurationGroup' : 'Duur van contact', "count" : 'Aantal personen'})
     st.plotly_chart(fig2)
