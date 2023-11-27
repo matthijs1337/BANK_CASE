@@ -4,6 +4,7 @@ import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import LabelEncoder
 import plotly.express as px
+from plotly.subplots import make_subplots
 
 #Data inladen
 df = pd.read_csv("bank.csv", sep=';')
