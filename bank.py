@@ -4,7 +4,6 @@ import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import LabelEncoder
 import plotly.express as px
-import seaborn as sns
 
 #Data inladen
 df = pd.read_csv("bank.csv", sep=';')
@@ -74,12 +73,9 @@ def tab_one():
 #Defineren van plots
 
 def plot_bar_charts():
-  
-    fig, ax = plt.subplots()
-    sns.barplot(data=df, x='y', y='AgeGroup', hue='y', palette='pastel')
-    ax.set_ylabel('Leeftijdscategorie')
-    ax.set_xlabel('Heeft de klant een termijndeposito afgesloten?')
-    plt.show()
+    #figuur 1 leeftijdsgroep
+    fig1 = px.bar(df, x='y', color="AgeGroup", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'AgeGroup' : 'Leeftijdscategorie', "count" : 'Aantal personen'})
+    st.plotly_chart(fig1)
     
     #figuur 2 lengte van de call
     fig2 = px.bar(df, x='y', color="DurationGroup", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'DurationGroup' : 'Duur van contact', "count" : 'Aantal personen'})
