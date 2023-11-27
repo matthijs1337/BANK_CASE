@@ -74,7 +74,7 @@ def tab_one():
 
 def plot_bar_charts():
     #figuur 1 leeftijdsgroep
-    fig1 = px.pie(df, names='AgeGroup', values='count', title='Verdeling per leeftijdscategorie')
+    fig1 = px.pie(df, names='AgeGroup', values='y', title='Verdeling per leeftijdscategorie')
     st.plotly_chart(fig1)
 
     
