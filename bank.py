@@ -91,10 +91,10 @@ def plot_bar_charts():
     fig = make_subplots(rows=1, cols=2, specs=[[{'type': 'domain'}, {'type': 'domain'}]])
     
     # Create pie chart for 'yes'
-    fig.add_trace(go.Pie(labels=df_yes['AgeGroup'], values=df_yes['count'], name="Yes"), 1, 1)
+    fig.add_trace(go.Pie(labels=df_yes['AgeGroup'], values=df_yes['yes'], name="Yes"), 1, 1)
     
     # Create pie chart for 'no'
-    fig.add_trace(go.Pie(labels=df_no['AgeGroup'], values=df_no['count'], name="No"), 1, 2)
+    fig.add_trace(go.Pie(labels=df_no['AgeGroup'], values=df_no['no'], name="No"), 1, 2)
     
     # Use `hole` to create a donut-like pie chart
     fig.update_traces(hole=0.4, hoverinfo="label+percent+name")
