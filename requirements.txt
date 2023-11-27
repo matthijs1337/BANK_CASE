@@ -2,3 +2,4 @@ plotly==5.10.0
 streamlit-folium==0.6.15
 pandas==1.4.4
 scikit-learn==1.2.1
+seabron==0.12.2
