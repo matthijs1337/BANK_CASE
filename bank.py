@@ -108,14 +108,24 @@ def plot_bar_charts():
     fig13.add_trace(go.Pie(labels=df_no['education'], hole=0.6), 1, 2)
     fig13.update_layout(title_text="Hoogst afgeronde opleiding, Ja vs Nee")
     st.plotly_chart(fig13)
+  
     #figuur 4 werk
-    fig4 = px.bar(df, x='y', color="job", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'job' : 'Functietitel', "count" : 'Aantal personen'})
-    st.plotly_chart(fig4)
-
+    #fig4 = px.bar(df, x='y', color="job", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'job' : 'Functietitel', "count" : 'Aantal personen'})
+    #st.plotly_chart(fig4)
+    fig14 = make_subplots(rows=1, cols=2, specs=[[{'type': 'domain'}, {'type': 'domain'}]])
+    fig14.add_trace(go.Pie(labels=df_yes['job'], hole=0.6), 1, 1)
+    fig14.add_trace(go.Pie(labels=df_no['job'], hole=0.6), 1, 2)
+    fig14.update_layout(title_text="Functietitel, Ja vs Nee")
+    st.plotly_chart(fig14)
+  
     #figuur 5 huwelijk
-    fig5 = px.bar(df, x='y', color="marital", barmode="group", labels ={"y": "Heeft de klant een termijndeposito afgesloten?", 'marital' : 'Huwelijksstatus', "count" : 'Aantal personen'})
-    st.plotly_chart(fig5)
-
+    #fig5 = px.bar(df, x='y', color="marital", barmode="group", labels ={"y": "Heeft de klant een termijndeposito afgesloten?", 'marital' : 'Huwelijksstatus', "count" : 'Aantal personen'})
+    #st.plotly_chart(fig5)
+    fig15 = make_subplots(rows=1, cols=2, specs=[[{'type': 'domain'}, {'type': 'domain'}]])
+    fig15.add_trace(go.Pie(labels=df_yes['marital'], hole=0.6), 1, 1)
+    fig15.add_trace(go.Pie(labels=df_no['marital'], hole=0.6), 1, 2)
+    fig15.update_layout(title_text="Huwelijksstatus, Ja vs Nee")
+    st.plotly_chart(fig15)
 
 def plot_bar_charts2():
     #figuur 6 contact
