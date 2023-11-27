@@ -78,19 +78,21 @@ def plot_bar_charts():
     #figuur 1 leeftijdsgroep
     #fig1 = px.pie(df, names='AgeGroup', values='y', title='Verdeling per leeftijdscategorie')
     #st.plotly_chart(fig1)
-    # Create subplots: use 'domain' type for Pie subplot
 
-    # Group by AgeGroup and count occurrences of 'yes' and 'no'
-    grouped = df.groupby('AgeGroup')['y'].value_counts().unstack().fillna(0)
+    # Filter de dataset voor 'yes' en 'no'
+    df_yes = df[df['y'] == 'yes']
+    df_no = df[df['y'] == 'no']
     
-    # Create Pie chart for 'Yes' and 'No' in each 'AgeGroup'
-    fig = go.Figure()
-    for col in grouped.columns:
-        fig.add_trace(go.Pie(labels=grouped.index, values=grouped[col], name=col))
+    # Maak een cirkeldiagram voor 'yes'
+    fig_yes = px.pie(df_yes, names='AgeGroup', title='Verdeling van leeftijdsgroepen voor "yes"')
     
-    fig.update_traces(hole=0.4, hoverinfo="label+percent+name")
-    fig.update_layout(title_text="Distribution of 'Yes' and 'No' across AgeGroups")
-    st.plotly_chart(fig)
+    # Maak een cirkeldiagram voor 'no'
+    fig_no = px.pie(df_no, names='AgeGroup', title='Verdeling van leeftijdsgroepen voor "no"')
+    
+    # Toon de cirkeldiagrammen
+    st.plotly_chart(fig_yes)
+    st.plotly_chart(fig_no)
+
 
     #figuur 2 lengte van de call
     fig2 = px.bar(df, x='y', color="DurationGroup", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'DurationGroup' : 'Duur van contact', "count" : 'Aantal personen'})
