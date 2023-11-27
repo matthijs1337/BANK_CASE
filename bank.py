@@ -101,9 +101,13 @@ def plot_bar_charts():
     st.plotly_chart(fig12)
     
     #figuur 3 opleidingsniveau
-    fig3 = px.bar(df, x='y', color="education", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'education' : 'Hoogst afgeronde opleiding', "count" : 'Aantal personen'})
-    st.plotly_chart(fig3)
-  
+    #fig3 = px.bar(df, x='y', color="education", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'education' : 'Hoogst afgeronde opleiding', "count" : 'Aantal personen'})
+    #st.plotly_chart(fig3)
+    fig13 = make_subplots(rows=1, cols=2, specs=[[{'type': 'domain'}, {'type': 'domain'}]])
+    fig13.add_trace(go.Pie(labels=df_yes['education'], hole=0.6), 1, 1)
+    fig13.add_trace(go.Pie(labels=df_no['education'], hole=0.6), 1, 2)
+    fig13.update_layout(title_text="Hoogst afgeronde opleiding, Ja vs Nee")
+    st.plotly_chart(fig13)
     #figuur 4 werk
     fig4 = px.bar(df, x='y', color="job", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'job' : 'Functietitel', "count" : 'Aantal personen'})
     st.plotly_chart(fig4)
