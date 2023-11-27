@@ -106,11 +106,9 @@ def plot_bar_charts():
         dict(text='Yes', x=0.18, y=0.5, font_size=20, showarrow=False),
         dict(text='No', x=0.82, y=0.5, font_size=20, showarrow=False)])
 
-# Show the figure
-st.plotly_chart(fig)
+    # Show the figure
+    st.plotly_chart(fig)
 
-
-    
     #figuur 2 lengte van de call
     fig2 = px.bar(df, x='y', color="DurationGroup", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'DurationGroup' : 'Duur van contact', "count" : 'Aantal personen'})
     st.plotly_chart(fig2)
