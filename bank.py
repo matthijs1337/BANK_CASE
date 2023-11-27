@@ -76,29 +76,29 @@ def tab_one():
 
 def plot_bar_charts():
     #figuur 1 leeftijdsgroep
-    fig1 = px.bar(df, x='y', color="AgeGroup", barmode="group")
-    fig1 = px.bar(df, x='y', color="AgeGroup", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'AgeGroup' : 'Leeftijdscategorie', "count" : 'Aantal personen'})
-    st.plotly_chart(fig1)
+    #fig1 = px.bar(df, x='y', color="AgeGroup", barmode="group")
+    #fig1 = px.bar(df, x='y', color="AgeGroup", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'AgeGroup' : 'Leeftijdscategorie', "count" : 'Aantal personen'})
+    #st.plotly_chart(fig1)
 
     # Filter de dataset voor "yes" en "no"
     df_yes = df[df['y'] == 'yes']
     df_no = df[df['y'] == 'no']
+  
     # Maak een subplots figuur met twee pie charts
     fig11 = make_subplots(rows=1, cols=2, specs=[[{'type': 'domain'}, {'type': 'domain'}]])
-    
-    # Voeg de pie charts toe voor "yes" en "no"
     fig11.add_trace(go.Pie(labels=df_yes['AgeGroup'], hole=0.6), 1, 1)
     fig11.add_trace(go.Pie(labels=df_no['AgeGroup'], hole=0.6), 1, 2)
-    
-    # Update layout
     fig11.update_layout(title_text="Leeftijdscategorie, Ja vs Nee")
-    
-    # Toon de subplot met beide pie charts
     st.plotly_chart(fig11)
   
     #figuur 2 lengte van de call
-    fig2 = px.bar(df, x='y', color="DurationGroup", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'DurationGroup' : 'Duur van contact', "count" : 'Aantal personen'})
-    st.plotly_chart(fig2)
+    #fig2 = px.bar(df, x='y', color="DurationGroup", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'DurationGroup' : 'Duur van contact', "count" : 'Aantal personen'})
+    #st.plotly_chart(fig2)
+    fig12 = make_subplots(rows=1, cols=2, specs=[[{'type': 'domain'}, {'type': 'domain'}]])
+    fig12.add_trace(go.Pie(labels=df_yes['DurationGroup'], hole=0.6), 1, 1)
+    fig12.add_trace(go.Pie(labels=df_no['DurationGroup'], hole=0.6), 1, 2)
+    fig12.update_layout(title_text="Lengte van de call, Ja vs Nee")
+    st.plotly_chart(fig12)
     
     #figuur 3 opleidingsniveau
     fig3 = px.bar(df, x='y', color="education", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'education' : 'Hoogst afgeronde opleiding', "count" : 'Aantal personen'})
