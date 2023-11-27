@@ -79,32 +79,18 @@ def plot_bar_charts():
     #fig1 = px.pie(df, names='AgeGroup', values='y', title='Verdeling per leeftijdscategorie')
     #st.plotly_chart(fig1)
     # Create subplots: use 'domain' type for Pie subplot
-    fig = make_subplots(rows=1, cols=2, specs=[[{'type': 'domain'}, {'type': 'domain'}]])
 
-    # Create pie chart for 'yes'
-
-# Filter data for 'yes' and 'no'
-    df_yes = df[df['y'] == 'yes']
-    df_no = df[df['y'] == 'no']
+    # Group by AgeGroup and count occurrences of 'yes' and 'no'
+    grouped = df.groupby('AgeGroup')['y'].value_counts().unstack().fillna(0)
     
-    # Create subplots: use 'domain' type for Pie subplot
-    fig = make_subplots(rows=1, cols=2, specs=[[{'type': 'domain'}, {'type': 'domain'}]])
+    # Create Pie chart for 'Yes' and 'No' in each 'AgeGroup'
+    fig = go.Figure()
+    for col in grouped.columns:
+        fig.add_trace(go.Pie(labels=grouped.index, values=grouped[col], name=col))
     
-    # Create pie chart for 'yes'
-    fig.add_trace(go.Pie(labels=df_yes['AgeGroup'], values=df_yes['yes'], name="Yes"), 1, 1)
-    
-    # Create pie chart for 'no'
-    fig.add_trace(go.Pie(labels=df_no['AgeGroup'], values=df_no['no'], name="No"), 1, 2)
-    
-    # Use `hole` to create a donut-like pie chart
     fig.update_traces(hole=0.4, hoverinfo="label+percent+name")
-    
-    fig.update_layout(
-    title_text="Distribution of 'yes' and 'no' based on AgeGroup",
-    # Add annotations in the center of the donut pies.
-    annotations=[
-        dict(text='Yes', x=0.18, y=0.5, font_size=20, showarrow=False),
-        dict(text='No', x=0.82, y=0.5, font_size=20, showarrow=False)])
+    fig.update_layout(title_text="Distribution of 'Yes' and 'No' across AgeGroups")
+    st.plotly_chart(fig)
 
     # Show the figure
     st.plotly_chart(fig)
