@@ -91,7 +91,7 @@ def plot_bar_charts():
     fig11.add_trace(go.Pie(labels=df_no['AgeGroup'], hole=0.6), 1, 2)
     
     # Update layout
-    fig11.update_layout(title_text="Leeftijdscategorie")
+    fig11.update_layout(title_text="Leeftijdscategorie, Ja vs Nee")
     
     # Toon de subplot met beide pie charts
     st.plotly_chart(fig11)
