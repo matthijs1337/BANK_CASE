@@ -78,20 +78,31 @@ def plot_bar_charts():
     #figuur 1 leeftijdsgroep
     #fig1 = px.pie(df, names='AgeGroup', values='y', title='Verdeling per leeftijdscategorie')
     #st.plotly_chart(fig1)
-
     # Filter de dataset voor 'yes' en 'no'
     df_yes = df[df['y'] == 'yes']
     df_no = df[df['y'] == 'no']
     
-    # Maak een cirkeldiagram voor 'yes'
-    fig_yes = px.pie(df_yes, names='AgeGroup', title='Verdeling van leeftijdsgroepen voor "yes"')
+    # Maak cirkeldiagrammen voor 'yes' en 'no'
+    fig = make_subplots(rows=1, cols=2, specs=[[{'type': 'domain'}, {'type': 'domain'}]])
     
-    # Maak een cirkeldiagram voor 'no'
-    fig_no = px.pie(df_no, names='AgeGroup', title='Verdeling van leeftijdsgroepen voor "no"')
+    # Cirkeldiagram voor 'yes'
+    fig.add_trace(go.Pie(labels=df_yes['AgeGroup'], values=df_yes['count'], name='Yes'), 1, 1)
     
-    # Toon de cirkeldiagrammen
-    st.plotly_chart(fig_yes)
-    st.plotly_chart(fig_no)
+    # Cirkeldiagram voor 'no'
+    fig.add_trace(go.Pie(labels=df_no['AgeGroup'], values=df_no['count'], name='No'), 1, 2)
+    
+    # Update lay-out en labels
+    fig.update_traces(hole=0.4, hoverinfo="label+percent+name")
+    
+    fig.update_layout(
+        title_text="Verdeling van leeftijdsgroepen voor 'Yes' en 'No'",
+        annotations=[dict(text='Yes', x=0.18, y=0.5, font_size=20, showarrow=False),
+                     dict(text='No', x=0.82, y=0.5, font_size=20, showarrow=False)]
+    )
+    
+    # Toon de subplot
+    st.plotly_chart(fig)
+
 
 
     #figuur 2 lengte van de call
