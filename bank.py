@@ -92,9 +92,6 @@ def plot_bar_charts():
     fig.update_layout(title_text="Distribution of 'Yes' and 'No' across AgeGroups")
     st.plotly_chart(fig)
 
-    # Show the figure
-    st.plotly_chart(fig)
-
     #figuur 2 lengte van de call
     fig2 = px.bar(df, x='y', color="DurationGroup", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'DurationGroup' : 'Duur van contact', "count" : 'Aantal personen'})
     st.plotly_chart(fig2)
