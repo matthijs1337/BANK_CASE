@@ -48,7 +48,7 @@ df['duration_encoded'] = label_encoder.fit_transform(df['DurationGroup'])
 
 def tab_one():    
     # Train een logistisch regressiemodel met de dataset
-    X = df[['age_encoded', 'job','marital_encoded', 'education_encoded', 'contact_encoded', 'month_encoded', 'duration_encoded', 'campaign', 'pdays','previous']]
+    X = df[['age_encoded', 'job_encoded','marital_encoded', 'education_encoded', 'contact_encoded', 'month_encoded', 'duration_encoded', 'campaign', 'pdays','previous']]
     y = df['y']
     model = LogisticRegression()
     model.fit(X, y)
@@ -56,7 +56,7 @@ def tab_one():
     st.title('Voorspellingsmodel succesvolle banklening')
     # Dropdown-menu's voor variabelen
     age_encoded = st.selectbox('Selecteer leeftijdsgroep:', df['age_encoded'].unique())
-    job_encoded = st.selectbox('Selecteer baan:', df['job'].unique())
+    job_encoded = st.selectbox('Selecteer baan:', df['job_encoded'].unique())
     marital_encoded = st.selectbox('Selecteer relatiestatus:', df['marital_encoded'].unique())
     education_encoded = st.selectbox('Selecteer opleidingsniveau:', df['education_encoded'].unique())
     contact_encoded = st.selectbox('Selecteer contact:', df['contact_encoded'].unique())
