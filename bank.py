@@ -87,8 +87,8 @@ def plot_bar_charts():
     fig11 = make_subplots(rows=1, cols=2, specs=[[{'type': 'domain'}, {'type': 'domain'}]])
     
     # Voeg de pie charts toe voor "yes" en "no"
-    fig11.add_trace(go.Pie(labels=df_yes['AgeGroup'], hole=0.6, marker_colors=['#353837', '#646665', '#8e9492', '#c9d1ce']), 1, 1)
-    fig11.add_trace(go.Pie(labels=df_no['AgeGroup'], hole=0.6, marker_colors=['#353837', '#646665', '#8e9492', '#c9d1ce']), 1, 2)
+    fig11.add_trace(go.Pie(labels=df_yes['AgeGroup'], hole=0.6]), 1, 1)
+    fig11.add_trace(go.Pie(labels=df_no['AgeGroup'], hole=0.6]), 1, 2)
     
     # Update layout
     fig11.update_layout(title_text="Leeftijdscategorie")
