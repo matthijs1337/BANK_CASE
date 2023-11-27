@@ -5,6 +5,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import LabelEncoder
 import plotly.express as px
 from plotly.subplots import make_subplots
+import plotly.graph_objects as go
 
 #Data inladen
 df = pd.read_csv("bank.csv", sep=';')
@@ -81,8 +82,6 @@ def plot_bar_charts():
     fig = make_subplots(rows=1, cols=2, specs=[[{'type': 'domain'}, {'type': 'domain'}]])
 
     # Create pie chart for 'yes'
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
 
 # Filter data for 'yes' and 'no'
 df_yes = df[df['y'] == 'yes']
