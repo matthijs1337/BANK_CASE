@@ -79,6 +79,8 @@ def plot_bar_charts():
     #fig1 = px.pie(df, names='AgeGroup', values='y', title='Verdeling per leeftijdscategorie')
     #st.plotly_chart(fig1)
     # Filter de dataset voor 'yes' en 'no'
+
+    # Filter de dataset voor 'yes' en 'no'
     df_yes = df[df['y'] == 'yes']
     df_no = df[df['y'] == 'no']
     
@@ -86,10 +88,10 @@ def plot_bar_charts():
     fig = make_subplots(rows=1, cols=2, specs=[[{'type': 'domain'}, {'type': 'domain'}]])
     
     # Cirkeldiagram voor 'yes'
-    fig.add_trace(go.Pie(labels=df_yes['AgeGroup'], values=df_yes['count'], name='Yes'), 1, 1)
+    fig.add_trace(go.Pie(labels=df_yes['AgeGroup'], values=df_yes['AgeGroup'].value_counts(), name='Yes'), 1, 1)
     
     # Cirkeldiagram voor 'no'
-    fig.add_trace(go.Pie(labels=df_no['AgeGroup'], values=df_no['count'], name='No'), 1, 2)
+    fig.add_trace(go.Pie(labels=df_no['AgeGroup'], values=df_no['AgeGroup'].value_counts(), name='No'), 1, 2)
     
     # Update lay-out en labels
     fig.update_traces(hole=0.4, hoverinfo="label+percent+name")
