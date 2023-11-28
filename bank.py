@@ -69,7 +69,7 @@ def tab_one():
     previous = st.selectbox('Selecteer previous:', df['previous'].unique())
      
     # Increase font size for dropdowns
-    font_size = 16
+    font_size = 32
     dropdown_style = f"font-size: {font_size}px;"
      
     st.markdown(
