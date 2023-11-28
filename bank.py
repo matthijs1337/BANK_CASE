@@ -71,7 +71,7 @@ def tab_one():
     # Maak een voorspelling met het model op basis van de geselecteerde waarden
     prediction = model.predict([[age_encoded,job_encoded,marital_encoded,education_encoded,contact_encoded,month_encoded,duration_encoded,campaign,pdays,previous]])
     # Toon het voorspelde resultaat
-    st.write(f"Voorspelling: {prediction[0]}", style={"font-size": 60})
+    st.write(f"Voorspelling: {prediction[0]}", style={"font-size": 600})
 
 #Defineren van plots
 
