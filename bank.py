@@ -79,7 +79,7 @@ def plot_bar_charts():
     #fig1 = px.bar(df, x='y', color="AgeGroup", barmode="group")
     #fig1 = px.bar(df, x='y', color="AgeGroup", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'AgeGroup' : 'Leeftijdscategorie', "count" : 'Aantal personen'})
     #st.plotly_chart(fig1)
-    fig20 = px.bar(df, x='y', y ='count', color = 'y')
+    fig20 = px.bar(df, x='y', color = 'y')
     st.plotly_chart(fig20)
   
     # Filter de dataset voor "yes" en "no"
