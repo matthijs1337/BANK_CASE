@@ -57,20 +57,20 @@ def tab_one():
     # Streamlit-app
     st.title('Voorspellingsmodel succesvolle banklening')
     # Dropdown-menu's voor variabelen
-    age_encoded = st.selectbox('Selecteer leeftijdsgroep:', df['age_encoded'].unique())
-    job_encoded = st.selectbox('Selecteer baan:', df['job_encoded'].unique())
-    marital_encoded = st.selectbox('Selecteer relatiestatus:', df['marital_encoded'].unique())
-    education_encoded = st.selectbox('Selecteer opleidingsniveau:', df['education_encoded'].unique())
-    contact_encoded = st.selectbox('Selecteer contact:', df['contact_encoded'].unique())
-    month_encoded = st.selectbox('Selecteer maand:', df['month_encoded'].unique())
-    duration_encoded = st.selectbox('Selecteer duration:', df['duration_encoded'].unique())
-    campaign = st.selectbox('Selecteer campaign:', df['campaign'].unique())
-    pdays = st.selectbox('Selecteer pdays:', df['pdays'].unique())
-    previous = st.selectbox('Selecteer previous:', df['previous'].unique())
+    age_encoded = st.selectbox('Selecteer leeftijdsgroep:', df['age_encoded'].unique(), style={"font-size": 30})
+    job_encoded = st.selectbox('Selecteer baan:', df['job_encoded'].unique(), style={"font-size": 30})
+    marital_encoded = st.selectbox('Selecteer relatiestatus:', df['marital_encoded'].unique(), style={"font-size": 30})
+    education_encoded = st.selectbox('Selecteer opleidingsniveau:', df['education_encoded'].unique(), style={"font-size": 30})
+    contact_encoded = st.selectbox('Selecteer contact:', df['contact_encoded'].unique(), style={"font-size": 30})
+    month_encoded = st.selectbox('Selecteer maand:', df['month_encoded'].unique(), style={"font-size": 30})
+    duration_encoded = st.selectbox('Selecteer duration:', df['duration_encoded'].unique(), style={"font-size": 30})
+    campaign = st.selectbox('Selecteer campaign:', df['campaign'].unique(), style={"font-size": 30})
+    pdays = st.selectbox('Selecteer pdays:', df['pdays'].unique(), style={"font-size": 30})
+    previous = st.selectbox('Selecteer previous:', df['previous'].unique(), style={"font-size": 30})
     # Maak een voorspelling met het model op basis van de geselecteerde waarden
     prediction = model.predict([[age_encoded,job_encoded,marital_encoded,education_encoded,contact_encoded,month_encoded,duration_encoded,campaign,pdays,previous]])
     # Toon het voorspelde resultaat
-    st.write(f"Voorspelling: {prediction[0]}")
+    st.write(f"Voorspelling: {prediction[0]}", style={"font-size": 30})
 
 #Defineren van plots
 
