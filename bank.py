@@ -126,7 +126,7 @@ def tab_one():
     logpred = logmodel.predict(X_test)
     
     accuracy = round(accuracy_score(y_test, logpred), 2) * 100
-    st.write("Prediction Accuracy:", accuracy, "%")
+    st.write("Nauwkeurigheid van de voorspelling:", accuracy, "%")
 #Defineren van plots
 
 def plot_bar_charts():
