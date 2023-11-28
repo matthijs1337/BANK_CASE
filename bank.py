@@ -78,8 +78,7 @@ def tab_one():
     bank = pd.read_csv('bank.csv', sep = ';')
     y = pd.get_dummies(bank['y'], columns = ['y'], prefix = ['y'], drop_first = True)
     bank_client = bank.iloc[: , 0:7]
-        # Label encoder order is alphabetical
-    from sklearn.preprocessing import LabelEncoder
+    # Label encoder order is alphabetical
     labelencoder_X = LabelEncoder()
     bank_client['job']      = labelencoder_X.fit_transform(bank_client['job']) 
     bank_client['marital']  = labelencoder_X.fit_transform(bank_client['marital']) 
@@ -126,11 +125,9 @@ def tab_one():
     sc_X = StandardScaler()
     X_train = sc_X.fit_transform(X_train)
     X_test = sc_X.transform(X_test)
-    from sklearn.linear_model import LogisticRegression
     logmodel = LogisticRegression() 
     logmodel.fit(X_train,y_train)
     logpred = logmodel.predict(X_test)
-    
     LOGCV = (cross_val_score(logmodel, X_train, y_train, cv=k_fold, n_jobs=1, scoring = 'accuracy').mean())
     st.write("(round(accuracy_score(y_test, logpred),2)*100)", accuracy)
 
