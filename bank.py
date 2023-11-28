@@ -125,7 +125,7 @@ def tab_one():
     logmodel.fit(X_train,y_train)
     logpred = logmodel.predict(X_test)
     
-    print(round(accuracy_score(y_test, logpred),2)*100)
+    st.write(f"Accuracy: {round(accuracy * 100, 2)}%")
 #Defineren van plots
 
 def plot_bar_charts():
