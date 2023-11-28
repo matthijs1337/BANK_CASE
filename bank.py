@@ -58,7 +58,7 @@ def tab_one():
     st.title('Voorspellingsmodel succesvolle banklening')
     # Dropdown-menu's voor variabelen
     age_encoded = st.selectbox('Selecteer leeftijdsgroep:', df['age_encoded'].unique())
-    job_encoded = st.selectbox('Selecteer baan:', df['job_encoded'].unique())  
+    job_encoded = st.selectbox('Selecteer baan:', df['job_encoded'].unique())
     marital_encoded = st.selectbox('Selecteer relatiestatus:', df['marital_encoded'].unique())
     education_encoded = st.selectbox('Selecteer opleidingsniveau:', df['education_encoded'].unique())
     contact_encoded = st.selectbox('Selecteer contact:', df['contact_encoded'].unique())
@@ -67,6 +67,21 @@ def tab_one():
     campaign = st.selectbox('Selecteer campaign:', df['campaign'].unique())
     pdays = st.selectbox('Selecteer pdays:', df['pdays'].unique())
     previous = st.selectbox('Selecteer previous:', df['previous'].unique())
+     
+    # Increase font size for dropdowns
+    font_size = 16
+    dropdown_style = f"font-size: {font_size}px;"
+     
+    st.markdown(
+        f"""
+    <style>
+            .dropdown select {{
+                {dropdown_style}
+            }}
+    </style>
+        """,
+        unsafe_allow_html=True
+    )
 
     # Maak een voorspelling met het model op basis van de geselecteerde waarden
     prediction = model.predict([[age_encoded,job_encoded,marital_encoded,education_encoded,contact_encoded,month_encoded,duration_encoded,campaign,pdays,previous]])
