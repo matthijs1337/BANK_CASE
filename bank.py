@@ -79,7 +79,7 @@ def plot_bar_charts():
     #fig1 = px.bar(df, x='y', color="AgeGroup", barmode="group")
     #fig1 = px.bar(df, x='y', color="AgeGroup", barmode="group", labels ={"y" : "Heeft de klant een termijndeposito afgesloten?", 'AgeGroup' : 'Leeftijdscategorie', "count" : 'Aantal personen'})
     #st.plotly_chart(fig1)
-    fig20 = px.pie(df, values='y', names='y', title="Percentage aan personen die wel of geen termijndeposito heeft afgesloten")
+    fig20 = px.pie(df, names='y', title="Percentage aan personen die wel of geen termijndeposito heeft afgesloten")
     fig20.update_layout(
     xaxis_title="Categorie",
     yaxis_title="Percentage",
