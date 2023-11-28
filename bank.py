@@ -67,21 +67,9 @@ def tab_one():
     campaign = st.selectbox('Selecteer campaign:', df['campaign'].unique())
     pdays = st.selectbox('Selecteer pdays:', df['pdays'].unique())
     previous = st.selectbox('Selecteer previous:', df['previous'].unique())
-     
-    # Increase font size for dropdowns
-    font_size = 32
-    dropdown_style = f"font-size: {font_size}px;"
-     
-    st.markdown(
-        f"""
-    <style>
-            .dropdown select {{
-                {dropdown_style}
-            }}
-    </style>
-        """,
-        unsafe_allow_html=True
-    )
+    from sklearn.metrics import accuracy_score
+    st.write(accuracy_score(y_true, y_pred))
+
 
     # Maak een voorspelling met het model op basis van de geselecteerde waarden
     prediction = model.predict([[age_encoded,job_encoded,marital_encoded,education_encoded,contact_encoded,month_encoded,duration_encoded,campaign,pdays,previous]])
