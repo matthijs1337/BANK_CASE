@@ -114,22 +114,38 @@ def tab_one():
     bank_final = bank_final[['age', 'job', 'marital', 'education', 'default', 'housing', 'loan',
                          'contact', 'month', 'day_of_week', 'duration', 'emp.var.rate', 'cons.price.idx', 
                          'cons.conf.idx', 'euribor3m', 'nr.employed', 'campaign', 'pdays', 'previous', 'poutcome']]
-    from sklearn.model_selection import train_test_split
-    X_train, X_test, y_train, y_test = train_test_split(bank_final, y, test_size = 0.1942313295, random_state = 101)
-    
-    from sklearn.model_selection import KFold
-    from sklearn.model_selection import cross_val_score
-    from sklearn.metrics import confusion_matrix, accuracy_score
-    k_fold = KFold(n_splits=10, shuffle=True, random_state=0)
+
+
+
     from sklearn.preprocessing import StandardScaler
-    sc_X = StandardScaler()
-    X_train = sc_X.fit_transform(X_train)
-    X_test = sc_X.transform(X_test)
-    logmodel = LogisticRegression() 
-    logmodel.fit(X_train,y_train)
+    from sklearn.model_selection import train_test_split
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.metrics import accuracy_score
+    
+    # Assuming 'bank_final' contains your preprocessed features and 'y' is your target variable
+    
+    # Splitting data into train and test sets
+    X_train, X_test, y_train, y_test = train_test_split(bank_final, y, test_size=0.2, random_state=101)
+    
+    # Selecting only numerical columns for scaling
+    numeric_cols = ['age', 'duration', 'emp.var.rate', 'cons.price.idx', 'cons.conf.idx', 'euribor3m', 'nr.employed', 'campaign', 'pdays', 'previous']
+    
+    # Initialize StandardScaler and fit on training data, then transform both train and test data
+    scaler = StandardScaler()
+    X_train[numeric_cols] = scaler.fit_transform(X_train[numeric_cols])
+    X_test[numeric_cols] = scaler.transform(X_test[numeric_cols])
+    
+    # Create and train the logistic regression model
+    logmodel = LogisticRegression()
+    logmodel.fit(X_train, y_train)
+    
+    # Predict on the test set
     logpred = logmodel.predict(X_test)
-    LOGCV = (cross_val_score(logmodel, X_train, y_train, cv=k_fold, n_jobs=1, scoring = 'accuracy').mean())
-    st.write("(round(accuracy_score(y_test, logpred),2)*100)", accuracy)
+    
+    # Calculate accuracy
+    accuracy = accuracy_score(y_test, logpred)
+    print(f"Accuracy: {round(accuracy * 100, 2)}%")
+
 
 #Defineren van plots
 
