@@ -78,6 +78,7 @@ def tab_one():
     st.write(f"Voorspelling: {prediction[0]}")
 
     #Converting dependent variable categorical to dummy
+    bank = df.copy()
     y = pd.get_dummies(bank['y'], columns = ['y'], prefix = ['y'], drop_first = True)
       
     bank_client = bank.iloc[: , 0:7]
