@@ -76,6 +76,7 @@ def tab_one():
 
     #Train set
     # Split the dataset into training and testing sets
+    data = df
     X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, test_size=0.3, random_state=42)
     
     # Create a logistic regression model
