@@ -57,7 +57,7 @@ def tab_one():
     # Streamlit-app
     st.title('Voorspellingsmodel succesvolle banklening')
     # Dropdown-menu's voor variabelen
-    age_encoded = st.selectbox('Selecteer leeftijdsgroep:', df['age_encoded'].unique(), style={'font-size': 20})
+    age_encoded = st.selectbox('Selecteer leeftijdsgroep:', df['age_encoded'].unique())
     job_encoded = st.selectbox('Selecteer baan:', df['job_encoded'].unique(), style={"font-size": 20})  
     marital_encoded = st.selectbox('Selecteer relatiestatus:', df['marital_encoded'].unique(), style={"font-size": 20})
     education_encoded = st.selectbox('Selecteer opleidingsniveau:', df['education_encoded'].unique(), style={"font-size": 20})
