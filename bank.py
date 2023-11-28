@@ -6,6 +6,7 @@ from sklearn.preprocessing import LabelEncoder
 import plotly.express as px
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
+from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 #Data inladen
 df = pd.read_csv("bank.csv", sep=';')
@@ -72,8 +73,27 @@ def tab_one():
     prediction = model.predict([[age_encoded,job_encoded,marital_encoded,education_encoded,contact_encoded,month_encoded,duration_encoded,campaign,pdays,previous]])
     # Toon het voorspelde resultaat
     st.write(f"Voorspelling: {prediction[0]}")
+
+    #Train set
+    # Split the dataset into training and testing sets
+    X_train, X_test, y_train, y_test = train_test_split(data.data, data.target, test_size=0.3, random_state=42)
     
-    st.write(accuracy_score(y_true, y_pred))
+    # Create a logistic regression model
+    lr = LogisticRegression()
+    
+    # Fit the model on the training data
+    lr.fit(X_train, y_train)
+    
+    # Make predictions on the testing data
+    y_pred = lr.predict(X_test)
+    
+    # Calculate the prediction accuracy
+    accuracy = accuracy_score(y_test, y_pred)
+    
+    # Print the prediction accuracy
+
+    st.write("Prediction Accuracy:", accuracy)
+
 #Defineren van plots
 
 def plot_bar_charts():
