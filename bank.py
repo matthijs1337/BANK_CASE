@@ -57,24 +57,15 @@ def tab_one():
     # Streamlit-app
     st.title('Voorspellingsmodel succesvolle banklening')
     # Dropdown-menu's voor variabelen
-    age_encoded = st.selectbox('Selecteer leeftijdsgroep:', df['age_encoded'].unique(),style={"font-size": 20})
-    
-    job_encoded = st.selectbox('Selecteer baan:', df['job_encoded'].unique(), style={"font-size": 20})
-    
+    age_encoded = st.selectbox('Selecteer leeftijdsgroep:', df['age_encoded'].unique(), style={'font-size': 20})
+    job_encoded = st.selectbox('Selecteer baan:', df['job_encoded'].unique(), style={"font-size": 20})  
     marital_encoded = st.selectbox('Selecteer relatiestatus:', df['marital_encoded'].unique(), style={"font-size": 20})
-    
     education_encoded = st.selectbox('Selecteer opleidingsniveau:', df['education_encoded'].unique(), style={"font-size": 20})
-    
     contact_encoded = st.selectbox('Selecteer contact:', df['contact_encoded'].unique(),style={"font-size": 20})
-    
     month_encoded = st.selectbox('Selecteer maand:', df['month_encoded'].unique(), style={"font-size": 20})
-    
     duration_encoded = st.selectbox('Selecteer duration:', df['duration_encoded'].unique(), style={"font-size": 20})
-    
     campaign = st.selectbox('Selecteer campaign:', df['campaign'].unique(),style={"font-size": 20})
-    
     pdays = st.selectbox('Selecteer pdays:', df['pdays'].unique(),style={"font-size": 20})
-    
     previous = st.selectbox('Selecteer previous:', df['previous'].unique(), style={"font-size": 20})
 
     # Maak een voorspelling met het model op basis van de geselecteerde waarden
