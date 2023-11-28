@@ -71,7 +71,7 @@ def tab_one():
     
     duration_encoded = st.selectbox('Selecteer duration:', df['duration_encoded'].unique(), style={"font-size": 20})
     
-    campaign = st.selectbox('Selecteer campaign:', df['campaign'].unique(),s tyle={"font-size": 20})
+    campaign = st.selectbox('Selecteer campaign:', df['campaign'].unique(),style={"font-size": 20})
     
     pdays = st.selectbox('Selecteer pdays:', df['pdays'].unique(),style={"font-size": 20})
     
